@@ -1,0 +1,29 @@
+& when (@media-common =true) {
+    .promotion-home {
+        background: url('@{baseDir}images/background-home-promition.png');
+
+        .content {
+            display              : grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap      : 20px;
+            padding              : 5% 0;
+
+            .item {
+                position: relative;
+
+                img {
+                    width: 100%;
+                }
+
+                p {
+                    position   : absolute;
+                    left       : 8%;
+                    bottom     : 3%;
+                    color      : #ffffff;
+                    font-family: @font-family-name__Markerfield-W00-Regular;
+                    font-size  : 64px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- <page
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"><body><referenceBlock name="page.wrapper"><block class="Magento\Framework\View\Element\Template" template="Magento_Cms::banner.phtml" before="main.content" /></referenceBlock><referenceContainer name="main"><block class="Magento\Cms\Block\Block" name="home.promotion"><arguments><argument name="block_id" xsi:type="string">home-promotion</argument></arguments></block><block class="Magento\Cms\Block\Block" name="home.category.block" before="new.blog.home"><arguments><argument name="block_id" xsi:type="string">home-category-block</argument></arguments></block><block class="Magento\Cms\Block\Block" name="new.blog.home" after="-" ><arguments><argument name="block_id" xsi:type="string">new-blog-home</argument></arguments></block></referenceContainer></body></page> -->
+<page
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+    <referenceContainer name="main">
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::banner.phtml" name="home.banner.slider" after="-"  />
+            <block class="Magento\Cms\Block\Block" name="home.promotion" after="home.banner.slider">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">home-promotion</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="home.superfood" after="home.promotion">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">superfood-home</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

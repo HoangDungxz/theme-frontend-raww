@@ -1,0 +1,131 @@
+& when (@media-common =true) {
+    .banner-slider {
+        .item {
+            position: relative;
+
+            &.slick-active .item-caption .item-caption-content {
+                h2.title {
+                    animation: backInDown 0.9s both 1s;
+                }
+
+                p {
+                    animation: bounceInRight 1.5s both 1.5s;
+                }
+
+                a {
+                    animation: bounceInUp 0.9s both 1s;
+                }
+
+            }
+
+            &-caption {
+                position: absolute;
+                top     : 24.4%;
+                left    : 13%;
+                width   : 460px;
+
+                &-content {
+                    position: relative;
+
+                    h2 {
+                        &.title {
+                            color      : #ffffff;
+                            font-size  : 100px;
+                            font-family: @font-family-name__Markerfield-W00-Regular;
+                            line-height: 0.9;
+                        }
+                    }
+
+                    p {
+                        font-size  : 18px;
+                        color      : #ffffff;
+                        padding    : 2% 0 7% 0;
+                        line-height: 1.7;
+                    }
+
+                    a {
+                        color           : #30241a;
+                        background-color: #ffffff;
+                        text-decoration : none;
+                        font-family     : @font-family-name__Avenir-Heavy;
+                        padding         : 14px 26px;
+                        font-size       : 18px;
+                        border-radius   : 3px;
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .slick-prev {
+            left            : 5%;
+            z-index         : 1;
+            border          : none;
+            display         : none !important;
+            background-color: none;
+            box-shadow      : none;
+        }
+
+        .slick-next {
+            right           : 5%;
+            z-index         : 1;
+            border          : none;
+            display         : none !important;
+            background-color: none;
+            box-shadow      : none;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            content  : "\3C";
+            color    : #00000063;
+            font-size: 50px;
+        }
+
+        .slick-next:before {
+            content: "\3E";
+        }
+
+        &:hover .slick-prev,
+        &:hover .slick-next {
+            transition: 1s all;
+            display   : block !important;
+        }
+
+        .slick-dots {
+
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+            bottom         : 30px;
+
+            li {
+                border-radius   : 50%;
+                color           : white;
+                background-color: none;
+                width           : 12px;
+                height          : 12px;
+                border          : 1px solid #fff;
+
+                &.slick-active {
+                    background-color: #fff;
+                    width           : 15px;
+                    height          : 15px;
+                }
+
+                button {
+                    width  : 0;
+                    height : 0;
+                    padding: 0;
+                }
+
+                button:before {
+                    content: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+& when (@media-common =true) {
+    .superfood-home {
+        padding: 5% 0;
+
+        .title {
+            h2 {
+                font-size  : 42px;
+                font-family: @font-family-name__Avenir-Heavy;
+                color      : #30241a;
+                text-align : center;
+                margin     : 0;
+            }
+
+            p {
+                color     : #30241a;
+                font-size : 20px;
+                text-align: center;
+                width     : 90%;
+                margin    : 0 auto;
+                margin-top: 35px;
+            }
+        }
+
+        .content {
+            display   : inline-block;
+            width     : 100%;
+            padding   : 0;
+            margin    : 0 auto;
+            text-align: center;
+            margin-top: 50px;
+
+            .items {
+                max-width     : 100%;
+                display       : inline-block;
+                vertical-align: middle;
+                width         : auto;
+                display       : inline-block;
+                width         : calc(100%/8);
+                float         : left;
+                text-align    : center;
+                margin-bottom : 22px;
+                margin-left   : 0;
+                clear         : none !important;
+                min-height    : 152px;
+
+                .item {
+
+                    .content-x {
+                        display   : inline-block;
+                        max-width : 97px;
+                        text-align: center;
+                        cursor    : pointer;
+
+                        .image {
+                            position: relative;
+                            width   : 97px;
+                            height  : 97px;
+                            display : inline-block;
+
+                            img {
+                                position: absolute;
+                                left    : 0;
+                            }
+
+                            img:nth-child(1) {
+                                z-index: 1;
+                            }
+
+                            &:hover {
+                                img:nth-child(1) {
+                                    z-index: 0;
+                                }
+
+                                img:nth-child(2) {
+                                    z-index: 1;
+                                }
+                            }
+                        }
+
+                    }
+
+                    p {
+                        color         : #30241a;
+                        font-size     : 14px;
+                        font-family   : @font-family-name__Avenir-Black;
+                        text-transform: uppercase;
+                        width         : min-content;
+                        line-height   : 1;
+                        text-align    : center;
+                        margin        : 0 auto;
+                        margin-top    : 10px;
+                    }
+                }
+            }
+
+        }
+
+        .shop-by {
+            margin    : 0 auto;
+            text-align: center;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
