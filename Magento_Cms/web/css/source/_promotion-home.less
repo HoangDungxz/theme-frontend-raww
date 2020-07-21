@@ -3,11 +3,7 @@
         background: url('@{baseDir}images/background-home-promition.png');
 
         .content {
-            display              : grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-column-gap      : 20px;
-            padding              : 5% 15px;
-            width                : 100%;
+            width: auto;
 
             .item {
                 position: relative;
@@ -18,11 +14,95 @@
 
                 p {
                     position   : absolute;
-                    left       : 8%;
-                    bottom     : 3%;
                     color      : #ffffff;
                     font-family: @font-family-name__Markerfield-W00-Regular;
-                    font-size  : 64px;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__xs) {
+    .promotion-home {
+        background: none !important;
+
+        .content {
+            display              : grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap      : 10px;
+            padding              : 5% 15px;
+            grid-row-gap         : 5px;
+
+            .item {
+                p {
+                    left     : 8%;
+                    bottom   : 3%;
+                    font-size: 25px;
+                }
+
+                &:nth-child(4) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+    .promotion-home {
+
+        .content {
+            display              : grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap      : 10px;
+            padding              : 5% 15px;
+
+            .item {
+                p {
+                    left     : 8%;
+                    bottom   : 3%;
+                    font-size: 30px;
+                }
+
+                &:nth-child(4) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .promotion-home {
+
+        .content {
+            display              : grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap      : 20px;
+            padding              : 5% 15px;
+
+            .item {
+                p {
+                    left     : 8%;
+                    bottom   : 8%;
+                    font-size: 48px;
+                }
+
+                &:nth-child(4) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {
+    .promotion-home {
+
+        .content {
+            .item {
+                p {
+                    font-size: 64px;
                 }
             }
         }
