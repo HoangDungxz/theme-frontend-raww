@@ -98,7 +98,7 @@ Alert
 ----------------------------------
 */
 
-@message-notice__color: #ea1f24;
+@message-notice__color: @error__color;
 @message-notice__background: none;
 @message-notice__border-color: @message-notice__color;
 
@@ -129,6 +129,7 @@ Misc
 
 .icon-link {
   padding: 0 5px;
+  font-size: 25px;
   &:hover {
     color: #4f4035;
   }
@@ -195,6 +196,21 @@ input[type="checkbox"] {
 
 // Radio checkbox
 
+
+
+/*
+Input Fields
+----------------------------------
+*/
+input, select {
+  height: 40px !important;
+  border-radius: 3px;
+  box-shadow: none !important;
+}
+
+
+
+
 /*
 Styleguide 
 ----------------------------------
@@ -227,7 +243,7 @@ Styleguide
   .styleguide-misc {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    h2 {
+    .styleguide-title {
       grid-column-start: 1;
       grid-column-end: 4;
     }
@@ -240,9 +256,6 @@ Styleguide
           color: #4f4035;
         }
       }
-      span {
-        font-size: 25px;
-      }
     }
     .misc-right {
       display: grid;
@@ -254,6 +267,7 @@ Styleguide
       }
     }
   }
+
   .styleguide-checkbox-radio {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -326,6 +340,35 @@ Styleguide
           background-color: #f2f2f2;
         }
       }
+    }
+  }
+
+  .styleguide-inputField {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    .styleguide-title {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+    .inputField-left {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      .styleguide-input-error {
+        input {
+          border: 1px solid @error__color;
+        }
+        span {
+          color: @error__color;
+        }
+      }
+    }
+    .inputField-right {
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
+    input, select {
+      margin-bottom: 10px;
     }
   }
 }
