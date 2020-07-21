@@ -1,9 +1,7 @@
-@button-primary__color: white;
-@button-primary__hover__color: white;
-@button-primary__background: #30241a;
-@button-primary__hover__background: #221912;
-@button-primary__border: none;
-@button-primary__hover__border: none;
+/*
+Typography
+----------------------------------
+*/
 
 h1,
 h2,
@@ -37,6 +35,8 @@ h5 {
 p {
   color: #31251c;
   font-size: 15px;
+  line-height: 25px;
+  padding-bottom: 10px;
 }
 
 a {
@@ -44,13 +44,59 @@ a {
   &:hover {
     color: #31251c;
     transition: ease-in 0.45s;
+    cursor: pointer;
   }
 }
+
+/*
+Buttons
+----------------------------------
+*/
+
+@button-primary__color: white;
+@button-primary__hover__color: white;
+@button-primary__background: #30241a;
+@button-primary__hover__background: #221912;
+@button-primary__border: none;
+@button-primary__hover__border: none;
+
+@button-hollow__color: #31251c;
+@button-hollow__hover__color: @button-primary__color;
+@button-hollow__background: white;
+@button-hollow__hover__background: #e9d5d2;
+@button-hollow__border: #e9d5d2;
+@button-hollow__hover__border: @button-primary__border;
+
+@button-primary__active__background: @button-primary__background;
+@button-primary__active__border: @button-primary__border;
+@button-primary__active__color: @button-primary__color;
 
 .action.primary {
   padding: 15px 40px;
   font-size: 15px;
 }
+
+.action.hollow {
+  padding: 15px 40px;
+  font-size: 15px;
+  border: 1px solid @button-hollow__border;
+  background: @button-hollow__background;
+  color: @button-hollow__color;
+  &:hover {
+    background: @button-hollow__hover__background;
+    transition: ease-out 0.45s;
+  }
+}
+
+input[type="number"] {
+  width: 80px;
+  height: 40px;
+}
+
+/*
+Alert
+----------------------------------
+*/
 
 @message-notice__color: #ea1f24;
 @message-notice__background: none;
@@ -71,7 +117,88 @@ a {
 .message.success {
   text-align: center;
   border: 1px solid @message-success__border-color;
+  > *:first-child:before {
+    content: " ";
+  }
 }
+
+/*
+Misc
+----------------------------------
+*/
+
+.icon-link {
+  padding: 0 5px;
+  &:hover {
+    color: #4f4035;
+  }
+}
+
+.icon-misc {
+  text-align: center;
+}
+
+/*
+Checkbox & Radio Buttons
+----------------------------------
+*/
+input[type="checkbox"] {
+  display: none;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: "\2713\0020";
+  position: absolute;
+  top: 2.4px;
+  left: 3.8px;
+  font-size: 20px;
+  line-height: 0.8;
+  color: black;
+  transition: all 0.2s;
+}
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #f2f2f2;
+}
+
+// Radio checkbox
+
+/*
+Styleguide 
+----------------------------------
+*/
 
 .styleguide {
   display: grid;
@@ -79,12 +206,127 @@ a {
   .styleguide-title {
     color: #999;
     font-size: 30px;
+    margin-top: 50px;
   }
   h1 {
     margin: 80px 0 0 0;
   }
   .text-link-hover {
     text-decoration: underline;
+  }
+
+  .styleguide-button {
+    .button-before {
+      margin-bottom: 15px;
+    }
+    input[type="number"] {
+      margin-left: 10px;
+    }
+  }
+
+  .styleguide-misc {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    h2 {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+    .misc-left {
+      .icon-before {
+        margin-bottom: 10px;
+      }
+      .icon-after {
+        span {
+          color: #4f4035;
+        }
+      }
+      span {
+        font-size: 25px;
+      }
+    }
+    .misc-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .icon-after {
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .styleguide-checkbox-radio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .styleguide-title {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+    .styleguide-checkbox,
+    .styleguide-radio {
+      .field.choice {
+        margin-bottom: 10px;
+        [type="radio"]:checked,
+        [type="radio"]:not(:checked) {
+          display: none;
+        }
+
+        [type="radio"]:checked + label,
+        [type="radio"]:not(:checked) + label {
+          position: relative;
+          padding-left: 28px;
+          cursor: pointer;
+          line-height: 20px;
+          display: inline-block;
+          color: #666;
+        }
+
+        [type="radio"]:checked + label:before,
+        [type="radio"]:not(:checked) + label:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 17px;
+          height: 17px;
+          border: 1px solid #ddd;
+          border-radius: 100%;
+          background: #fff;
+        }
+
+        [type="radio"]:checked + label:after,
+        [type="radio"]:not(:checked) + label:after {
+          content: "";
+          width: 7px;
+          height: 7px;
+          background: black;
+          position: absolute;
+          top: 6px;
+          left: 6px;
+          border-radius: 50%;
+          -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+        }
+
+        [type="radio"]:not(:checked) + label:after {
+          opacity: 0;
+          -webkit-transform: scale(0);
+          transform: scale(0);
+        }
+
+        [type="radio"]:checked + label:after {
+          opacity: 1;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+        }
+
+        [type="radio"]:disabled:not(:checked) + label:before,
+        [type="radio"]:disabled:checked + label:before {
+          box-shadow: none;
+          border-color: #bbb;
+          background-color: #f2f2f2;
+        }
+      }
+    }
   }
 }
 
