@@ -1,0 +1,117 @@
+@button-primary__color: white;
+@button-primary__hover__color: white;
+@button-primary__background: #30241a;
+@button-primary__hover__background: #221912;
+@button-primary__border: none;
+@button-primary__hover__border: none;
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: @font-family__Avenir-Heavy;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 15px;
+}
+
+h5 {
+  font-size: 14px;
+  font-family: @font-family__Avenir-Black;
+  text-transform: uppercase;
+}
+
+p {
+  color: #31251c;
+  font-size: 15px;
+}
+
+a {
+  color: #31251c;
+  &:hover {
+    color: #31251c;
+    transition: ease-in 0.45s;
+  }
+}
+
+.action.primary {
+  padding: 15px 40px;
+  font-size: 15px;
+}
+
+@message-notice__color: #ea1f24;
+@message-notice__background: none;
+@message-notice__border-color: @message-notice__color;
+
+.message.notice {
+  text-align: center;
+  border: 1px solid @message-notice__border-color;
+  > *:first-child:before {
+    content: " ";
+  }
+}
+
+@message-success__color: @color-dark-green1;
+@message-success__background: none;
+@message-success__border-color: @message-success__color;
+
+.message.success {
+  text-align: center;
+  border: 1px solid @message-success__border-color;
+}
+
+.styleguide {
+  display: grid;
+  grid-gap: 60px;
+  .styleguide-title {
+    color: #999;
+    font-size: 30px;
+  }
+  h1 {
+    margin: 80px 0 0 0;
+  }
+  .text-link-hover {
+    text-decoration: underline;
+  }
+}
+
+//
+//  Desktop (styles-l.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break)
+  when
+  (@extremum = "min")
+  and
+  (@break = @screen__m) {
+  .styleguide {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+//
+//  Mobile (styles-m.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break)
+  when
+  (@extremum = "max")
+  and
+  (@break = @screen__m) {
+  .styleguide {
+    grid-template-columns: 1fr;
+  }
+}
