@@ -5,7 +5,20 @@
 @import "_variables_extend.less";
 @import "_styleguide.less";
 
-.page-main {
-    max-width: 100%;
-    padding  : 0;
+
+
+
+& when (@media-common =true) {
+    body.cms-index-index .page-wrapper .page-main {
+        max-width: 100%;
+        padding  : 0;
+    }
+
+    .container {
+        width    : 100%;
+        max-width: 1270px;
+        margin   : 0 auto;
+        padding  : 0 5px;
+        display  : block;
+    }
 }
