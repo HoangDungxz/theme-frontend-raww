@@ -60,8 +60,7 @@
             }
         }
 
-        .slick-prev {
-            left            : 5%;
+        .slick-style {
             z-index         : 1;
             border          : none;
             display         : none !important;
@@ -69,30 +68,39 @@
             box-shadow      : none;
         }
 
+        .slick-prev {
+            .slick-style;
+            left: 5%;
+        }
+
         .slick-next {
-            right           : 5%;
-            z-index         : 1;
-            border          : none;
-            display         : none !important;
-            background-color: none;
-            box-shadow      : none;
+            .slick-style;
+            right: 5%;
         }
 
         .slick-prev:before,
         .slick-next:before {
             content  : "\3C";
-            color    : #00000063;
-            font-size: 50px;
+            color    : #00000091;
+            font-size: 70px;
         }
 
         .slick-next:before {
             content: "\3E";
         }
 
-        &:hover .slick-prev,
-        &:hover .slick-next {
-            transition: 1s all;
-            display   : block !important;
+        &:hover {
+            .slick-next {
+                .transition(0.8s);
+                display  : block !important;
+                animation: fadeInRight 0.2s both 0.2s;
+            }
+
+            .slick-prev {
+                .transition(0.8s);
+                display  : block !important;
+                animation: fadeInLeft 0.2s both 0.2s;
+            }
         }
 
         .slick-dots {
