@@ -1,0 +1,191 @@
+& when (@media-common =true) {
+    .shop-instagram {
+        margin-top: 5%;
+
+        .title {
+            text-align   : center;
+            color        : #30241a;
+            margin-bottom: 11px;
+
+            h2 {
+                font-family: @font-family-name__Avenir-Heavy;
+                margin     : 0px 0px 10px 0px;
+            }
+        }
+
+        .content {
+            display        : grid;
+            grid-column-gap: 5px;
+            grid-row-gap   : 12px;
+
+            .itemx {
+                display: block !important;
+            }
+        }
+
+        .view-more {
+            text-align: center;
+            margin-top: 15px;
+
+            .action.primary {
+                font-family: @font-family-name__Avenir-Heavy;
+                padding    : 15px 30px;
+            }
+
+            .action-view {
+                display: none !important;
+            }
+        }
+    }
+
+    /* instagram hover effect */
+    .instagram-effect {
+        a {
+            display  : block;
+            height   : 100%;
+            max-width: 100%;
+            position : relative;
+            width    : 100%;
+
+            &::before {
+                background-color: rgba(255, 255, 255, 0.15);
+                content         : "";
+                height          : 100%;
+                left            : 0;
+                position        : absolute;
+                top             : 0;
+                transition      : all 0.3s ease-out 0s;
+                width           : 100%;
+                transform       : scale(0);
+            }
+
+            &::after {
+                background-color: rgba(255, 255, 255, 0.15);
+                bottom          : 0;
+                content         : "";
+                height          : 0;
+                position        : absolute;
+                right           : 0;
+                transition      : all 0.3s ease-out 0s;
+                width           : 0;
+            }
+        }
+
+        &:hover {
+
+            & a::after,
+            & a::before {
+                height    : 100%;
+                transition: all 0.4s ease-out 0s;
+                width     : 100%;
+            }
+
+            & a::before {
+                transform : scale(1);
+                transition: all 0.4s ease-out 0s;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__xs) {
+    .shop-instagram {
+        .title {
+
+            h2 {
+                font-size: 23px;
+            }
+
+            p {
+                font-size: 13px;
+            }
+        }
+
+        .content {
+            grid-template-columns: 1fr 1fr;
+            grid-row-gap         : 3px !important;
+
+            .item {
+
+                &:nth-child(5),
+                &:nth-child(6) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
+    .shop-instagram {
+        .title {
+
+            h2 {
+                font-size: 25px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .content {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .item {
+
+                &:nth-child(7),
+                &:nth-child(8) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+    .shop-instagram {
+        .title {
+
+            h2 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+        .content {
+            grid-template-columns: 1fr 1fr 1fr;
+
+            .item {
+
+                &:nth-child(7),
+                &:nth-child(8),
+                &:nth-child(9),
+                &:nth-child(10),
+                &:nth-child(11),
+                &:nth-child(12) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {
+    .shop-instagram {
+        .content {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            .item {
+
+                &:nth-child(7),
+                &:nth-child(8) {
+                    display: block;
+                }
+            }
+        }
+    }
+}

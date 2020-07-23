@@ -10,7 +10,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocat
 <page
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-    <referenceContainer name="main">
+        <referenceContainer name="main">
             <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::banner.phtml" name="home.banner.slider" before="-"  />
             <block class="Magento\Cms\Block\Block" name="home.promotion" after="home.banner.slider">
                 <arguments>
@@ -25,6 +25,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocat
         </referenceContainer>
         <referenceContainer name="main">
             <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::favourite_product.phtml" name="home.favourite.productproduct" after="home.superfood"  />
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::shop_instagram_home.phtml" name="shop.instagram.home" after="home.favourite.productproduct"  />
+            <container name="block.home.new.letter" htmlClass="block-new-letter-home" htmlTag="div" after="shop.instagram.home">
+                <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.home" as="subscribe" after="home.center.letter.content" template="Magento_Newsletter::subscribe.phtml" ifconfig="newsletter/general/active"/>
+            </container>
         </referenceContainer>
     </body>
 </page>

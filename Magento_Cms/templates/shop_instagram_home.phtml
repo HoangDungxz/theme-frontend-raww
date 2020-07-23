@@ -1,0 +1,13 @@
+<?php
+echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('shop-instagram')->toHtml();
+
+?>
+
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        $('#view-more-instagram').click(function() {
+            $('.item.instagram-effect').toggleClass('itemx');
+            $('#view-more-instagram').toggleClass('action-view');
+        });
+    });
+</script>

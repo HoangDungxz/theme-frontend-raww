@@ -1,43 +1,49 @@
-& when (@media-common = true) {
-	.page-footer{
+& when (@media-common =true) {
+	.page-footer {
 		background-color: @color-white;
 	}
-	.footer.content{
-		h2{
+
+	.footer.content {
+		h2 {
 			font-size: 20px;
-			margin: 0 0 13px;
+			margin   : 0 0 13px;
 		}
+
 		background-color: @color-white;
-		padding: 0;
-		.footer-top{
+		padding         : 0;
+
+		.footer-top {
 			border-bottom: solid 1px #eee;
-			border-top: solid 2px #eee;
-			ul{
-				list-style: none;
-				display: flex;
-				align-items: center;
-				flex-wrap: wrap;
-				padding: 0;
-				margin: 51px 0;
-				li{
-					display: flex;
+			border-top   : solid 2px #eee;
+
+			ul {
+				list-style           : none;
+				display              : grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				padding              : 0;
+				margin               : 51px 0;
+
+				li {
+					display        : flex;
 					justify-content: center;
-					a{
-						font-size: 14px;
-						letter-spacing: 0.25px;
-						font-family: @font-family__Avenir-Black;
-						color: #31251c;
-						text-transform: uppercase;
+
+					a {
+						font-size      : 14px;
+						letter-spacing : 0.25px;
+						font-family    : @font-family__Avenir-Black;
+						color          : #31251c;
+						text-transform : uppercase;
 						text-decoration: none;
-						cursor: pointer;
-						                         display: flex;
-                         align-items: center;
-						img{
-							display: inline-block;
+						cursor         : pointer;
+						display        : flex;
+						align-items    : center;
+
+						img {
+							display     : inline-block;
 							margin-right: 14px;
-							top: 9px;
-							height: 30px;
-							width: auto;
+							top         : 9px;
+							height      : 30px;
+							width       : auto;
 						}
 					}
 				}
@@ -46,62 +52,71 @@
 
 	}
 
-	.footer-main{
-		padding: 0 20px;
-		margin-top: 25px;
-		display: flex;
+	.footer-main {
+		padding       : 0 20px;
+		margin-top    : 25px;
+		display       : flex;
 		flex-direction: row-reverse;
-		.footer-links{
-			display: grid;
+
+		.footer-links {
+			display              : grid;
 			grid-template-columns: 1fr 1fr 1fr;
-			flex: 0 0 70%;
+			flex                 : 0 0 70%;
 		}
-		.footer-main-right{
+
+		.footer-main-right {
 			position: relative;
 			overflow: hidden;
 		}
-		.block.newsletter{
-			width: 100%;
-			flex: 0 0 70%;
-			padding: 30px 30px 27px;
-			background: #ead5d3;
-			max-width: 100%;
-			box-sizing: border-box;
+
+		.block.newsletter {
+			width         : 100%;
+			flex          : 0 0 70%;
+			padding       : 30px 30px 27px;
+			background    : #ead5d3;
+			max-width     : 100%;
+			box-sizing    : border-box;
 			padding-bottom: 80px;
-			.actions{
-				button{
-					position: absolute;
-					right: 0;
-					top: 0;
-					height: 50px;
+
+			.actions {
+				button {
+					position        : absolute;
+					right           : 0;
+					top             : 0;
+					height          : 50px;
 					background-color: @color-white;
-					padding: 7px 15px;
-					border-radius: 5px;
-					i{
+					padding         : 7px 15px;
+					border-radius   : 5px;
+
+					i {
 						color: @color-black;
 					}
 				}
 			}
 		}
 	}
-	.footer-bottom{
-		display: flex;
+
+	.footer-bottom {
+		display        : flex;
 		justify-content: space-between;
-		padding: 0 20px;
+		padding        : 0 20px;
 	}
-	.copyright{
+
+	.copyright {
 		background: none;
-		color: @color-black;
-		padding: 0;
-		font-size: 14px;
+		color     : @color-black;
+		padding   : 0;
+		font-size : 14px;
 	}
-	.payment{
-		img{
+
+	.payment {
+		img {
 			margin-left: 20px;
 		}
 	}
-	.footer-bottom{
-		padding: 32px 20px;
+
+	.footer-bottom {
+		padding   : 32px 20px;
 		border-top: solid 1px #eee;
 	}
 }
@@ -110,50 +125,59 @@
 //  Desktop 
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-	.page-footer{
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
+	.page-footer {
 		background-color: @color-white;
 	}
+
 	.footer.content {
 		padding: 0;
-		ul.col{
+
+		ul.col {
 			padding-right: 0;
-			margin: 30px 0;
+			margin       : 30px 0;
 		}
-		.footer-top{
-				li{
-					flex: auto;
-				}
-		}
-		.block.newsletter{
-			width: 100%;
-			max-width: 100%;
-			box-sizing: border-box;
-			.form.subscribe{
-				position: relative;	
+
+		.footer-top {
+			li {
+				flex: auto;
 			}
-			.control{
-				&:before{
+		}
+
+		.block.newsletter {
+			width     : 100%;
+			max-width : 100%;
+			box-sizing: border-box;
+
+			.form.subscribe {
+				position: relative;
+			}
+
+			.control {
+				&:before {
 					content: "";
 				}
-				input[type="email"]{
-					height: 50px;
-					line-height: 50px;
-					padding: 25px 20px;
-					margin: 0;
-					border: none;
+
+				input[type="email"] {
+					height       : 50px;
+					line-height  : 50px;
+					padding      : 25px 20px;
+					margin       : 0;
+					border       : none;
 					border-radius: 5px;
 				}
 			}
-			.actions{
-				button{
-					position: absolute;
-					right: 0;
-					top: 0;
-					height: 50px;
+
+			.actions {
+				button {
+					position        : absolute;
+					right           : 0;
+					top             : 0;
+					height          : 50px;
 					background-color: @color-white;
-					padding: 15px;
-					i{
+					padding         : 15px;
+
+					i {
 						color: @color-black;
 					}
 				}
@@ -167,16 +191,18 @@
 //  _____________________________________________
 
 @media only screen and (max-width: @screen__m) {
-	.footer-main{
+	.footer-main {
 		display: block;
 	}
-	.footer-contact{
-		position: absolute;
-		bottom: 50px;
-		left: 50%;
+
+	.footer-contact {
+		position : absolute;
+		bottom   : 50px;
+		left     : 50%;
 		transform: translateX(-50%);
 	}
-	.newsletter__title{
+
+	.newsletter__title {
 		text-align: center;
 	}
 }
@@ -185,15 +211,13 @@
 //  Mobile (styles-m.css)
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
-	.footer-top{
-		ul{
-			li{
+.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__s) {
+	.footer-top {
+		ul {
+			li {
 				flex: 0 0 50%;
-				a{
 
-
-				}
+				a {}
 			}
 		}
 	}
