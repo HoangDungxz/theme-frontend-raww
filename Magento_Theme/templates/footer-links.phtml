@@ -1,0 +1,21 @@
+<div class="footer-links">
+	<?php
+// Footer product
+	echo $block->getLayout()
+	->createBlock('Magento\Cms\Block\Block')
+	->setBlockId('footer-products-block')
+	->toHtml();
+
+// Footer our difference
+	echo $block->getLayout()
+	->createBlock('Magento\Cms\Block\Block')
+	->setBlockId('footer-our-difference-block')
+	->toHtml();
+
+// Footor customer service
+	echo $block->getLayout()
+	->createBlock('Magento\Cms\Block\Block')
+	->setBlockId('footer-customer-service-block')
+	->toHtml();
+	?>
+</div>
