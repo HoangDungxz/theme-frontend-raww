@@ -1,0 +1,76 @@
+& when (@media-common =true) {
+    body.catalog-product-view .page-wrapper .page-main {
+        max-width: 100%;
+        padding  : 0;
+
+        .container {
+            max-width: 1240px;
+            margin   : 0 auto;
+        }
+    }
+
+    .breadcrumbs {
+        strong {
+            color: #999;
+        }
+
+        a:visited {
+            color    : #8b7f70;
+            font-size: 13px;
+        }
+
+        .item:not(:last-child):after {
+            content     : '/';
+            font-size   : 17px;
+            margin-left : 4px;
+            margin-top  : -3px;
+            margin-right: 5px;
+            color       : #d3d3d3;
+        }
+    }
+
+    .fotorama__arr,
+    .fotorama__thumb__arr {
+        &:hover {
+            background: none !important;
+        }
+
+        background: none !important;
+    }
+
+    .page-product-configurable .product.media .fotorama__nav.fotorama__nav--thumbs .fotorama__thumb-border,
+    .catalog-product-view .product.media .fotorama__nav.fotorama__nav--thumbs .fotorama__thumb-border {
+        border    : 1px solid #eee;
+        background: transparent;
+    }
+
+    .dataswitch-style {
+        border-bottom : none;
+        color         : #30241a;
+        letter-spacing: 1px;
+        padding-left  : 26px;
+        padding-right : 20px;
+        text-transform: uppercase;
+        font-size     : 14px;
+        font-family   : @font-family-name__Avenir-Black;
+    }
+
+    .product.info.detailed {
+        width: 66%;
+    }
+
+    .catalog-product-view .column.main .product.detailed .product.items .data.title {
+        .data.switch {
+            .dataswitch-style;
+            color: #9c9c9c;
+
+            .counter {
+                color: #9c9c9c;
+            }
+        }
+
+        &.active .data.switch {
+            .dataswitch-style;
+        }
+    }
+}

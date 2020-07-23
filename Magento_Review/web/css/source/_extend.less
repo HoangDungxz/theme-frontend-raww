@@ -1,0 +1,50 @@
+& when (@media-common =true) {
+    .catalog-product-view .container {
+        .product-info-main {
+            text-align     : center;
+            width          : 40%;
+            // padding-left: 113px;
+
+            .page-title {
+                font-family: @font-family-name__base;
+                color      : #30241a;
+            }
+
+            .product-reviews-summary {
+                float: none;
+
+                .rating-summary {
+                    margin-right: 11px;
+
+                    .rating-result:before {
+                        // color: #30241a;
+                        // content: '';
+
+                    }
+                }
+
+                .reviews-actions {
+
+                    .action {
+                        color          : #8b7f70;
+                        font-size      : 13px;
+                        text-decoration: none;
+                        font-size      : 13px;
+                        border-bottom  : 2px solid #cac5c0;
+                        margin-right   : 4px;
+
+                        &.view {
+                            margin-right: 5px;
+                        }
+
+                        &.add {
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+
+            .product-info-price {}
+        }
+    }
+}
