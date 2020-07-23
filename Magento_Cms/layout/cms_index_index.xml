@@ -23,5 +23,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocat
                 </arguments>
             </block>
         </referenceContainer>
+        <referenceContainer name="main">
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::favourite_product.phtml" name="home.favourite.productproduct" after="home.superfood"  />
+        </referenceContainer>
     </body>
 </page>
