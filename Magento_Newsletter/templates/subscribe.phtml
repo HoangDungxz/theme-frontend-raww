@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
@@ -9,37 +10,28 @@
 <div class="block newsletter">
     <div class="newsletter__title">
         <h2><?= $block->escapeHtml(__('Subscribe to our newsletter')) ?></h2>
-        <p><?= $block->escapeHtml(__('Want tobe inside scoop on supper food infused beaty? Sign up below')) ?></p>
+        <p><?= $block->escapeHtml(__('Want the inside scoop on superfood infused beauty? Sign up below')) ?></p>
     </div>
     <div class="newsletter__content">
-        <form class="form subscribe"
-        novalidate
-        action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
-        method="post"
-        data-mage-init='{"validation": {"errorClass": "mage-error"}}'
-        id="newsletter-validate-detail">
-        <div class="field newsletter">
-            <div class="control">
-                <label for="newsletter">
-                    <span class="label">
-                        <?= $block->escapeHtml(__('Sign Up for Our Newsletter:')) ?>
-                    </span>
-                    <input name="email" type="email" id="newsletter"
-                    placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>"
-                    data-mage-init='{"mage/trim-input":{}}'
-                    data-validate="{required:true, 'validate-email':true}"
-                    />
-                </label>
+        <form class="form subscribe" novalidate action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>" method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-validate-detail">
+            <div class="field newsletter">
+                <div class="control">
+                    <label for="newsletter">
+                        <span class="label">
+                            <?= $block->escapeHtml(__('Sign Up for Our Newsletter:')) ?>
+                        </span>
+                        <input name="email" type="email" id="newsletter" placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}" />
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="actions">
-            <button class="action subscribe primary"
-            title="<?= $block->escapeHtmlAttr(__('>')) ?>"
-            type="submit"
-            aria-label="Subscribe">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+            <div class="actions">
+                <button class="action subscribe primary" title="<?= $block->escapeHtmlAttr(__('>')) ?>" type="submit" aria-label="Subscribe">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="action subscribe-2 primary" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>" type="submit" aria-label="Subscribe">
+                    Subscribe
+                </button>
+            </div>
+        </form>
     </div>
-</form>
-</div>
 </div>
