@@ -1,12 +1,14 @@
 <div class="footer-top">
-	<?php
-	echo $block->getLayout()
+	<div class="footer-top-x container">
+		<?php
+		echo $block->getLayout()
 
-	->createBlock('Magento\Cms\Block\Block')
+			->createBlock('Magento\Cms\Block\Block')
 
-	->setBlockId('footer-top-block')
+			->setBlockId('footer-top-block')
 
-	->toHtml();
+			->toHtml();
 
-	?>
+		?>
+	</div>
 </div>

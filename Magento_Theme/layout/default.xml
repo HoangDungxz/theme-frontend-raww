@@ -5,20 +5,20 @@
  * See COPYING.txt for license details.
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="footer">
             <referenceBlock name="store_switcher" remove="true"/>
             <referenceBlock  name="footer_links" remove="true"/>
             <!-- <referenceBlock  name="copyright" remove="true"/> -->
             <!-- <referenceBlock  name="report.bugs" remove="true"/> -->
-
             <block class="Magento\Framework\View\Element\Template" name="footer.top" template="Magento_Theme::footer-top.phtml" before="-"/>
-
-            <container name="footer.main" htmlClass="footer-main" htmlTag="div" as="foooter_main" label="Footer Main" after="footer.top">
-
+            <container name="form.subscribe.footer.mobile" htmlClass="block-new-letter-footer-moblie container" htmlTag="div" after="footer.top">
+                <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.footer.mobile.content" template="Magento_Newsletter::subscribe.phtml" ifconfig="newsletter/general/active"/>
+            </container>
+            <container name="footer.main" htmlClass="footer-main container" htmlTag="div" as="foooter_main" label="Footer Main" after="form.subscribe.footer.mobile">
                 <block class="Magento\Framework\View\Element\Template" name="footer.link" template="Magento_Theme::footer-links.phtml" after="-"/>
-
                 <container name="footer.main.right" htmlClass="footer-main-right" htmlTag="div" as="foooter_main_right" label="Footer Main Right" before="footer.link">
                     <block class="Magento\Cms\Block\Block" name="footer.contact.block">
                         <arguments>
@@ -27,20 +27,18 @@
                     </block>
                 </container>
             </container>
-
-            <container name="footer.bottom" htmlClass="footer-bottom" htmlTag="div" as="foooter_bottom" label="Footer Bottom" after="footer.main">   
-
-                <container name="footer.bottom.left" htmlClass="footer-bottom-left" htmlTag="div" as="footer_bottom_left" label="Footer Bottom Left" before="-"/>
-
-                <container name="footer.bottom.right" htmlClass="footer-bottom-right" htmlTag="div" as="footer_bottom_right" label="Footer Bottom Right" after="-">
-                    <block class="Magento\Cms\Block\Block" name="footer.payment.block">
-                        <arguments>
-                            <argument name="block_id" xsi:type="string">footer-payment</argument>
-                        </arguments>
-                    </block>
+            <container name="footer.bottom" htmlClass="footer-bottom" htmlTag="div" after="footer.main">
+                <container name="footer.bottom.content" htmlClass="footer-bottom-x container" htmlTag="div" as="foooter_bottom" label="Footer Bottom">
+                    <container name="footer.bottom.left" htmlClass="footer-bottom-left" htmlTag="div" as="footer_bottom_left" label="Footer Bottom Left" before="-"/>
+                    <container name="footer.bottom.right" htmlClass="footer-bottom-right" htmlTag="div" as="footer_bottom_right" label="Footer Bottom Right" after="-">
+                        <block class="Magento\Cms\Block\Block" name="footer.payment.block">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">footer-payment</argument>
+                            </arguments>
+                        </block>
+                    </container>
                 </container>
             </container>
-
         </referenceContainer>
         <move element="form.subscribe" destination="footer.main.right" before="footer.contact.block"/>
         <move element="copyright" destination="footer.bottom.left" before="-"/>

@@ -1,21 +1,33 @@
 <div class="footer-links">
 	<?php
-// Footer product
+	// Footer product
 	echo $block->getLayout()
-	->createBlock('Magento\Cms\Block\Block')
-	->setBlockId('footer-products-block')
-	->toHtml();
+		->createBlock('Magento\Cms\Block\Block')
+		->setBlockId('footer-products-block')
+		->toHtml();
 
-// Footer our difference
+	// Footer our difference
 	echo $block->getLayout()
-	->createBlock('Magento\Cms\Block\Block')
-	->setBlockId('footer-our-difference-block')
-	->toHtml();
+		->createBlock('Magento\Cms\Block\Block')
+		->setBlockId('footer-our-difference-block')
+		->toHtml();
 
-// Footor customer service
+	// Footer About
 	echo $block->getLayout()
-	->createBlock('Magento\Cms\Block\Block')
-	->setBlockId('footer-customer-service-block')
-	->toHtml();
+		->createBlock('Magento\Cms\Block\Block')
+		->setBlockId('footer-about-block')
+		->toHtml();
+
+	// Footor customer service
+	echo $block->getLayout()
+		->createBlock('Magento\Cms\Block\Block')
+		->setBlockId('footer-customer-service-block')
+		->toHtml();
+
+	// Footor customer service
+	echo $block->getLayout()
+		->createBlock('Magento\Cms\Block\Block')
+		->setBlockId('footet-social-block')
+		->toHtml();
 	?>
 </div>
