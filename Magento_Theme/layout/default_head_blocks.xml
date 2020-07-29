@@ -8,7 +8,7 @@
 <page
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="css/font-awesome/all.css" type="text/css" />
+        <css src="css/font-awesome-4.7.0/font-awesome.css" type="text/css" />
         <css src="css/animate.css" />
     </head>
 </page>

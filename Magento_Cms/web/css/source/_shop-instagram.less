@@ -1,6 +1,6 @@
 & when (@media-common =true) {
     .shop-instagram {
-        padding: 5% 0 2.5% 0;
+        padding: 5% 0 3.7% 0;
 
         .title {
             text-align   : center;
@@ -180,8 +180,25 @@
 
 .media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {
     .shop-instagram {
+        .title {
+            margin-bottom: 15px;
+
+            h2 {
+                margin        : -7px 0px 10px 0px;
+                letter-spacing: -1px;
+            }
+
+            p {
+                margin        : 0px -10px 0 0;
+                letter-spacing: -0.2px;
+            }
+        }
+
         .content {
             grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-column-gap      : 19.5px;
+            grid-row-gap         : 20px;
+            font-size            : 0;
 
             .item {
 
@@ -189,6 +206,14 @@
                 &:nth-child(8) {
                     display: block;
                 }
+            }
+        }
+
+        .view-more {
+            margin-top: 18px;
+
+            .action.primary {
+                padding    : 18px 32px;
             }
         }
     }
