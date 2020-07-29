@@ -89,11 +89,6 @@ Buttons
   }
 }
 
-input[type="number"] {
-  width: 80px;
-  height: 40px;
-}
-
 /*
 Alert
 ----------------------------------
@@ -189,15 +184,17 @@ input[type="checkbox"] {
   transform: scale(1);
 }
 
+[type="checkbox"]:disabled:not(:checked) + label:after,
+[type="checkbox"]:disabled:checked + label:after {
+  color: #ccc;
+}
+
 [type="checkbox"]:disabled:not(:checked) + label:before,
 [type="checkbox"]:disabled:checked + label:before {
   box-shadow: none;
   border-color: #bbb;
   background-color: #f2f2f2;
-  color: #ccc;
 }
-
-
 
 // Radio checkbox
 
@@ -207,7 +204,6 @@ Input Fields
 */
 input {
   height: 40px !important;
-  border-radius: 3px;
   box-shadow: none !important;
 }
 
@@ -237,24 +233,26 @@ input {
   border: 1px solid #c2c2c2;
   background-color: @select-background;
   padding: 8px 15px;
-  @include transition(all 0.2s ease-in);
+  transition: all 0.2s ease-in;
   &:after {
-    content: '';
+    content: '\e622';
+    font-family: 'luma-icons';
+    font-size: 10px;
     width: 0;
     height: 0;
-    border: 7px solid transparent;
-    border-color: @select-color transparent transparent transparent;
     position: absolute;
-    top: 16px;
-    right: 10px;
+    top: 14px;
+    right: 25px;
+    color: inherit;
   }
   &:hover {
-    background-color: darken(@select-background, 5);
+    background-color: darken(@select-background, 3);
   }
   &:active,
   &.active {
     &:after {
-      top: 9px;
+      content: "\e621";
+      top: 13px;
       border-color: transparent transparent @select-color transparent;
     }
   }
@@ -280,7 +278,7 @@ input {
     transition: all 0.15s ease-in;
     &:hover {
       color: @select-color;
-      background-color: darken(@select-background, 5);
+      background-color: darken(@select-background, 3);
       transition: all 0.15s ease-in;
     }
     &[rel="hide"] {
@@ -326,36 +324,6 @@ Tabs
   }
 }
 
-// .dataswitch-style {
-//   border-bottom : none;
-//   color         : #30241a;
-//   letter-spacing: 1px;
-//   padding-left  : 26px;
-//   padding-right : 20px;
-//   text-transform: uppercase;
-//   font-size     : 14px;
-//   font-family   : @font-family-name__Avenir-Black;
-// }
-
-// .product.info.detailed {
-//   width: 66%;
-// }
-
-// .catalog-product-view .column.main .product.detailed .product.items .data.title {
-//   .data.switch {
-//       .dataswitch-style;
-//       color: #9c9c9c;
-
-//       .counter {
-//           color: #9c9c9c;
-//       }
-//   }
-
-//   &.active .data.switch {
-//       .dataswitch-style;
-//   }
-// }
-
 /*
 Styleguide 
 ----------------------------------
@@ -377,11 +345,25 @@ Styleguide
   }
 
   .styleguide-button {
-    .button-before {
+    button {
+      height: 50px;
+      width: 175px;
+    }
+
+    .button-before,
+    .button-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 10px;
       margin-bottom: 15px;
     }
+
+    .before-after {
+      margin: 0px;
+    }
+
     input[type="number"] {
-      margin-left: 10px;
+      margin-left: 25px;
     }
   }
 
@@ -466,6 +448,11 @@ Styleguide
           transition: all 0.2s ease;
         }
 
+        [type="radio"]:disabled:not(:checked) + label:after,
+        [type="radio"]:disabled:checked + label:after {
+          background: #ccc;
+        }
+
         [type="radio"]:not(:checked) + label:after {
           opacity: 0;
           -webkit-transform: scale(0);
@@ -512,6 +499,9 @@ Styleguide
     .inputField-right {
       grid-column-start: 2;
       grid-column-end: 3;
+      .select-options li:nth-child(2) {
+        background-color: darken(@select-background, 3);
+      }
     }
     input,
     select {

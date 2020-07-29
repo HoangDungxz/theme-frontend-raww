@@ -1,0 +1,22 @@
+& when (@media-common =true) {
+  .swatch {
+    &-attribute {
+      &-options {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    &-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      &.image,
+      &.color {
+        &:not(.disabled):hover {
+          outline: none;
+        }
+      }
+    }
+  }
+}
