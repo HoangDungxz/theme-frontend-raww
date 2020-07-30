@@ -8,6 +8,43 @@
 <page
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <!-- header -->
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="header-about" before="-">
+                <arguments>
+                    <argument name="label" xsi:type="string">About Raww</argument>
+                    <argument name="path" xsi:type="string">about</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Cms\Block\Block" name="header-text" after="store_language">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-text</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="header-top-mobile" after="store_language">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-top-mobile</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Cms\Block\Block" name="header-right-icons" after="minicart">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-right-icons</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="page.top">
+            <block class="Magento\Cms\Block\Block" name="header-usp-messages" after="navigation.sections">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-usp-messages</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="skip_to_content" remove="true"></referenceBlock>
+        <!-- header -->
         <referenceContainer name="footer">
             <referenceBlock name="store_switcher" remove="true"/>
             <referenceBlock  name="footer_links" remove="true"/>

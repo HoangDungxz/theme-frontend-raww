@@ -1,0 +1,54 @@
+& when (@media-common = true) {
+	.page-header {
+		.switcher {
+			float: none;
+			margin: 0;
+			order: 0;
+			-webkit-order: 0;
+			color: #31251c;
+
+			.options {
+				ul.dropdown {
+					min-width: 85px;
+					border: 1px solid @_base-color;
+				}
+
+				.action.toggle:after {
+					// font-family: FontAwesome;
+					// content: '\e620';
+				}
+
+			} 
+			.label {
+				margin: 0;
+				width: auto;
+				position: relative;
+			}
+		} 
+	} 
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-header {
+    	.switcher {
+	    	float: none;
+			margin: 0;
+			order: 0;
+			-webkit-order: 0;
+			width: 195px;
+	    }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+	.page-header {
+    	.switcher {
+	    	float: none;
+			margin: 0;
+			order: 0;
+			-webkit-order: 0;
+			width: 295px;
+	    }
+	}
+}

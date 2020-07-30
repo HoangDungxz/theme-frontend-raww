@@ -1,0 +1,90 @@
+& when (@media-common = true) {
+	.page-header {
+		.panel.wrapper {
+			.panel.header {
+
+				> .header.links {
+					margin-left: unset;
+					float: none;	
+				}
+			}
+		}
+	} 
+
+	.header.panel > .header.links > li {
+		font-size: 13px;
+	}
+
+	.header.panel > .header.links > li.customer-welcome {
+		margin: 0 0 0 13px;
+	}
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.page-header {
+
+		.header.panel {
+		}
+	}
+
+	.greet.welcome {
+		display: none;
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .page-header {
+
+	    .header.panel {
+    		> .header.links {
+    			> .authorization-link:after {
+			    	content: none;
+			    }
+			    li > a {
+					color: #31251c;
+					font-size: 13px;
+			    }
+    		} 
+    	} 
+    }
+
+    .customer-welcome {
+    	.action.switch {
+			line-height: revert;
+
+			> span {
+		    	margin: 0;
+		    	position: relative;
+		    	width: auto;
+		    }
+
+		    &:after {
+		    	content: none;
+		    }
+    	} 
+
+	    span {
+	    	font: 13px/20px @font-family-name__Avenir-Heavy,Arial,Sans-serif;
+	    	color: #31251c;
+	    }
+
+	    &.active .action.switch:after {
+	    	content: none;
+	    }
+
+	    ul {
+	    	border: 1px solid @_base-color;
+	    }
+    }
+
+    .logged-in {
+    	color: #31251c;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+	.page-header {
+    	
+	}
+}
