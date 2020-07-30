@@ -44,7 +44,7 @@
             </block>
         </referenceContainer>
         <referenceBlock name="skip_to_content" remove="true"></referenceBlock>
-        <!-- header -->
+        <!-- footer -->
         <referenceContainer name="footer">
             <referenceBlock name="store_switcher" remove="true"/>
             <referenceBlock  name="footer_links" remove="true"/>
