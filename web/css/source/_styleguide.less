@@ -125,16 +125,13 @@ Misc
 
 .icon-link {
   padding: 0 5px;
-  font-size: 25px;
+  font-size: 25px !important;
   &:hover {
     color: #4f4035;
   }
 }
 
-.misc-item {
-  text-align: center;
-  display: flow-root;
-}
+
 
 /*
 Checkbox & Radio Buttons
@@ -235,8 +232,8 @@ input {
   padding: 8px 15px;
   transition: all 0.2s ease-in;
   &:after {
-    content: '\e622';
-    font-family: 'luma-icons';
+    content: "\e622";
+    font-family: "luma-icons";
     font-size: 10px;
     width: 0;
     height: 0;
@@ -370,6 +367,14 @@ Styleguide
   .styleguide-misc {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    .contain-misc {
+      .misc-item {
+        text-align: center;
+        display: flow-root;
+        font-family: @font-family__Avenir-Black;
+        text-transform: uppercase;
+      }
+    }
     .styleguide-title {
       grid-column-start: 1;
       grid-column-end: 4;

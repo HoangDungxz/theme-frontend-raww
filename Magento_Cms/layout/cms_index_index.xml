@@ -1,17 +1,8 @@
 <?xml version="1.0"?>
-<!--
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
-<!-- <page
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"><body><referenceBlock name="page.wrapper"><block class="Magento\Framework\View\Element\Template" template="Magento_Cms::banner.phtml" before="main.content" /></referenceBlock><referenceContainer name="main"><block class="Magento\Cms\Block\Block" name="home.promotion"><arguments><argument name="block_id" xsi:type="string">home-promotion</argument></arguments></block><block class="Magento\Cms\Block\Block" name="home.category.block" before="new.blog.home"><arguments><argument name="block_id" xsi:type="string">home-category-block</argument></arguments></block><block class="Magento\Cms\Block\Block" name="new.blog.home" after="-" ><arguments><argument name="block_id" xsi:type="string">new-blog-home</argument></arguments></block></referenceContainer></body></page> -->
-<page
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::banner.phtml" name="home.banner.slider" before="-"  />
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::banner.phtml" name="home.banner.slider" before="-" />
             <block class="Magento\Cms\Block\Block" name="home.promotion" after="home.banner.slider">
                 <arguments>
                     <argument name="block_id" xsi:type="string">home-promotion</argument>
@@ -22,12 +13,10 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocat
                     <argument name="block_id" xsi:type="string">superfood-home</argument>
                 </arguments>
             </block>
-        </referenceContainer>
-        <referenceContainer name="main">
-            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::favourite_product.phtml" name="home.favourite.productproduct" after="home.superfood"  />
-            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::shop_instagram_home.phtml" name="shop.instagram.home" after="home.favourite.productproduct"  />
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::favourite_product.phtml" name="home.favourite.productproduct" after="home.superfood" />
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Cms::shop_instagram_home.phtml" name="shop.instagram.home" after="home.favourite.productproduct" />
             <container name="block.home.new.letter" htmlClass="block-new-letter-home" htmlTag="div" after="shop.instagram.home">
-                <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.home" as="subscribe" template="Magento_Newsletter::subscribe.phtml" ifconfig="newsletter/general/active"/>
+                <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.home" as="subscribe" template="Magento_Newsletter::subscribe.phtml" ifconfig="newsletter/general/active" />
             </container>
         </referenceContainer>
     </body>

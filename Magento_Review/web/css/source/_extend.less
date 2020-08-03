@@ -1,14 +1,6 @@
 & when (@media-common =true) {
   .catalog-product-view .container {
-    .product-info-main {
-      text-align: center;
-      width: 40%;
-      // padding-left: 113px;
-
-      .page-title {
-        font-family: @font-family-name__base;
-        color: #30241a;
-      }
+    .product-info-main {     
 
       .product-reviews-summary {
         float: none;
@@ -41,9 +33,6 @@
           }
         }
       }
-
-      .product-info-price {
-      }
     }
   }
 }
@@ -54,11 +43,15 @@
     &:before {        
         content: '\f006' '\f006' '\f006' '\f006' '\f006';
         font-family:FontAwesome;
+        color: @color-black;
     }
     
     > span {
       &:before {
-        color: black;
+        color: @color-black;
+        content: '\f005' '\f005' '\f005' '\f005' '\f005';
+        font-family:FontAwesome;
+        left: 1px;
       }
     }
   }
