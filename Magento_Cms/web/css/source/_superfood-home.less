@@ -1,247 +1,267 @@
 & when (@media-common =true) {
-    .superfood-home {
-        padding: 94px 15px 0px 15px;
+  .superfood-home {
+    padding: 94px 15px 0px 15px;
 
-        &.container {
-            max-width: 1140px;
-            width    : auto;
-        }
+    &.container {
+      max-width: 1140px;
+      width: auto;
+    }
 
-        .title {
-            h2 {
-                font-family   : @font-family-name__Avenir-Heavy;
-                color         : #30241a;
-                text-align    : center;
-                margin        : 0 2px 0 0;
-                letter-spacing: -1px;
-            }
+    .title {
+      h2,
+      h3 {
+        font-family: @font-family-name__Avenir-Heavy;
+        color: #30241a;
+        text-align: center;
+        margin: 0 2px 0 0;
+        letter-spacing: -1px;
+      }
 
-            p {
-                color     : #30241a;
-                text-align: center;
-                width     : 83%;
-                margin    : 0 auto;
-            }
-        }
+      h3 {
+        border-bottom: 1px solid #ccc;
+        margin: 0 auto;
+        padding: 30px;
+      }
 
-        .content {
-            width     : 98%;
-            padding   : 0;
-            margin    : 0 auto;
+      p {
+        color: #30241a;
+        text-align: center;
+        width: 83%;
+        margin: 0 auto;
+      }
+    }
+
+    .content {
+      width: 98%;
+      padding: 0;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 50px;
+
+      .items {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+        display: inline-block;
+        float: left;
+        text-align: center;
+        margin-bottom: 22px;
+        margin-left: 0;
+        clear: none !important;
+        min-height: 152px;
+
+        .item {
+          .content-x {
+            display: inline-block;
+            width: 100%;
             text-align: center;
-            margin-top: 50px;
+            cursor: pointer;
 
-            .items {
-                width         : 100%;
-                display       : inline-block;
-                vertical-align: middle;
-                width         : auto;
-                display       : inline-block;
-                float         : left;
-                text-align    : center;
-                margin-bottom : 22px;
-                margin-left   : 0;
-                clear         : none !important;
-                min-height    : 152px;
+            .image {
+              position: relative;
+              width: 97px;
+              height: 97px;
+              display: inline-block;
+              .transition(0.8s);
 
-                .item {
+              img {
+                position: absolute;
+                left: 0;
+              }
 
-                    .content-x {
-                        display   : inline-block;
-                        width     : 100%;
-                        text-align: center;
-                        cursor    : pointer;
+              img:nth-child(1) {
+                z-index: 1;
+              }
 
-                        .image {
-                            position: relative;
-                            width   : 97px;
-                            height  : 97px;
-                            display : inline-block;
-                            .transition(0.8s);
-
-                            img {
-                                position: absolute;
-                                left    : 0;
-                            }
-
-                            img:nth-child(1) {
-                                z-index: 1;
-                            }
-
-                            &:hover {
-                                img:nth-child(1) {
-                                    z-index: 0;
-                                }
-
-                                img:nth-child(2) {
-                                    z-index: 1;
-                                }
-                            }
-                        }
-
-                    }
-
-                    p {
-                        color         : #30241a;
-                        font-size     : 14px;
-                        font-family   : @font-family-name__Avenir-Black;
-                        text-transform: uppercase;
-                        width         : min-content;
-                        line-height   : 1;
-                        text-align    : center;
-                        margin        : 0 auto;
-                        margin-top    : 11px;
-                    }
+              &:hover {
+                img:nth-child(1) {
+                  z-index: 0;
                 }
+
+                img:nth-child(2) {
+                  z-index: 1;
+                }
+              }
             }
+          }
 
-        }
-
-        .shop-by {
-            margin    : 0 auto;
+          p {
+            color: #30241a;
+            font-size: 14px;
+            font-family: @font-family-name__Avenir-Black;
+            text-transform: uppercase;
+            width: min-content;
+            line-height: 1;
             text-align: center;
-
-            a {
-                text-decoration: none;
-                padding        : 15px 30px;
-                margin-top     : 3px;
-            }
+            margin: 0 auto;
+            margin-top: 11px;
+          }
         }
+      }
     }
+
+    .shop-by {
+      margin: 0 auto;
+      text-align: center;
+
+      a {
+        text-decoration: none;
+        padding: 15px 30px;
+        margin-top: 3px;
+      }
+    }
+  }
 }
 
-.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__xs) {
-    .superfood-home {
-        .title {
-            h2 {
-                font-size: 25px;
-            }
+.media-width(@extremum, @break)
+  when
+  (@extremum ="max")
+  and
+  (@break =@screen__xs) {
+  .superfood-home {
+    .title {
+      h2 {
+        font-size: 25px;
+      }
 
-            p {
-                font-size : 14px;
-                margin-top: 20px !important;
-            }
-        }
-
-        .content {
-            margin-top: 50px;
-
-            .items {
-                width: calc(100%/2) !important;
-
-                &:nth-child(5),
-                &:nth-child(6),
-                &:nth-child(7),
-                &:nth-child(8),
-                &:nth-child(9),
-                &:nth-child(10),
-                &:nth-child(11),
-                &:nth-child(12),
-                &:nth-child(13),
-                &:nth-child(14),
-                &:nth-child(15),
-                &:nth-child(16) {
-                    display: none;
-                }
-            }
-        }
+      p {
+        font-size: 14px;
+        margin-top: 20px !important;
+      }
     }
+
+    .content {
+      margin-top: 50px;
+
+      .items {
+        width: calc(100% / 2) !important;
+
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(9),
+        &:nth-child(10),
+        &:nth-child(11),
+        &:nth-child(12),
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
-.media-width(@extremum, @break) when (@extremum ='max') and (@break =@screen__m) {
-    .superfood-home {
-        .title {
-            h2 {
-                font-size: 25px;
-            }
+.media-width(@extremum, @break)
+  when
+  (@extremum ="max")
+  and
+  (@break =@screen__m) {
+  .superfood-home {
+    .title {
+      h2 {
+        font-size: 25px;
+      }
 
-            p {
-                font-size : 14px;
-                margin-top: 20px !important;
-            }
-        }
-
-        .content {
-            margin-top: 50px;
-
-            .items {
-                width: calc(100%/3) !important;
-
-                &:nth-child(7),
-                &:nth-child(8),
-                &:nth-child(9),
-                &:nth-child(10),
-                &:nth-child(11),
-                &:nth-child(12),
-                &:nth-child(13),
-                &:nth-child(14),
-                &:nth-child(15),
-                &:nth-child(16) {
-                    display: none;
-                }
-            }
-        }
+      p {
+        font-size: 14px;
+        margin-top: 20px !important;
+      }
     }
+
+    .content {
+      margin-top: 50px;
+
+      .items {
+        width: calc(100% / 3) !important;
+
+        &:nth-child(7),
+        &:nth-child(8),
+        &:nth-child(9),
+        &:nth-child(10),
+        &:nth-child(11),
+        &:nth-child(12),
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__m) {
-    .superfood-home {
-        .title {
-            h2 {
-                font-size: 35px;
-            }
+.media-width(@extremum, @break)
+  when
+  (@extremum ="min")
+  and
+  (@break =@screen__m) {
+  .superfood-home {
+    .title {
+      h2 {
+        font-size: 35px;
+      }
 
-            p {
-                font-size : 20px;
-                margin-top: 35px;
-            }
-        }
-
-        .content {
-            margin-top: 50px;
-
-            .items {
-                width: calc(100%/6);
-
-                &:nth-child(13),
-                &:nth-child(14),
-                &:nth-child(15),
-                &:nth-child(16) {
-                    display: none;
-                }
-            }
-        }
+      p {
+        font-size: 20px;
+        margin-top: 35px;
+      }
     }
+
+    .content {
+      margin-top: 50px;
+
+      .items {
+        width: calc(100% / 6);
+
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
-.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {
-    .superfood-home {
-        .title {
-            h2 {
-                font-size: 42px;
-            }
+.media-width(@extremum, @break)
+  when
+  (@extremum ="min")
+  and
+  (@break =@screen__l) {
+  .superfood-home {
+    .title {
+      h2 {
+        font-size: 42px;
+      }
 
-            p {
-                font-size     : 20px;
-                margin        : 37px 94px 0px auto;
-                line-height   : 28px;
-                letter-spacing: -0.2px;
-            }
-        }
-
-        .content {
-            margin-top: -15px;
-
-            .items {
-                width: calc(100%/8);
-
-                &:nth-child(13),
-                &:nth-child(14),
-                &:nth-child(15),
-                &:nth-child(16) {
-                    display: block;
-                }
-            }
-        }
+      p {
+        font-size: 20px;
+        margin: 37px 94px 0px auto;
+        line-height: 28px;
+        letter-spacing: -0.2px;
+      }
     }
+
+    .content {
+      margin-top: -15px;
+
+      .items {
+        width: calc(100% / 8);
+
+        &:nth-child(13),
+        &:nth-child(14),
+        &:nth-child(15),
+        &:nth-child(16) {
+          display: block;
+        }
+      }
+    }
+  }
 }
