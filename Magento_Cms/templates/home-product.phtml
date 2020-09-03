@@ -2,42 +2,48 @@
 echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('home-product')->toHtml();
 ?>
 
-
-<!-- script favourites -->
-<!-- <script>
-    require([
-        'jquery',
-        'slick'
-    ], function($) {
-        $(document).ready(function() {
-            $(".widget-product-grid").slick({
-                dots: true,
-                autoplay: false,
-                infinite: true,
-                speed: 300,
-                autoplaySpeed: 3500,
-                slidesToShow: 3,
-                slidesToScroll: 1
-            });
-        });
-    });
-</script> -->
-<!-- script favourites -->
-
-<!-- <script type="text/javascript" xml="space">
+<script type="text/javascript" xml="space">
     require([
         'jquery', 
         'owlcarousel'
     ], function($){ 
         $(document).ready(function() {
-            $('.product-items ').owlCarousel({
+            $(".widget-product-grid").owlCarousel({
                 loop:false,
-                nav:false,
+                nav:true,
                 items:3,
-                dots:true,
-                autoplay:true,
-                autoplayTimeout:3000
+                dots:false,
+                margin:20,
+                autoplay:false,
+                autoplayTimeout:3000,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true
+                    },
+                    410:{
+                        items:1.2,
+                        nav:true
+                    },
+                    450:{
+                        items:1.5,
+                        nav:true
+                    },
+                    620:{
+                        items:2,
+                        nav:true
+                    },
+                    768:{
+                        items:2.5,
+                        nav:true
+                    },
+                    992:{
+                        items:3,
+                        nav:true,
+                        loop:true
+                    }
+                }
             })
         });
     });
-</script> -->
+</script>
