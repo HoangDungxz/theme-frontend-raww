@@ -5,8 +5,7 @@
  * See COPYING.txt for license details.
  */
 -->
-<page
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <!-- header -->
         <referenceBlock name="header.links">
@@ -47,9 +46,9 @@
         <!-- footer -->
         <referenceContainer name="footer">
             <referenceBlock name="store_switcher" remove="true"/>
-            <referenceBlock  name="footer_links" remove="true"/>
-            <!-- <referenceBlock  name="copyright" remove="true"/> -->
-            <!-- <referenceBlock  name="report.bugs" remove="true"/> -->
+            <referenceBlock name="footer_links" remove="true"/>
+            <!-- <referenceBlock name="copyright" remove="true"/> -->
+            <!-- <referenceBlock name="report.bugs" remove="true"/> -->
             <block class="Magento\Framework\View\Element\Template" name="footer.top" template="Magento_Theme::footer-top.phtml" before="-"/>
             <container name="form.subscribe.footer.mobile" htmlClass="block-new-letter-footer-moblie container" htmlTag="div" after="footer.top">
                 <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe.footer.mobile.content" template="Magento_Newsletter::subscribe.phtml" ifconfig="newsletter/general/active"/>
@@ -79,5 +78,18 @@
         </referenceContainer>
         <move element="form.subscribe" destination="footer.main.right" before="footer.contact.block"/>
         <move element="copyright" destination="footer.bottom.left" before="-"/>
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <referenceContainer name="page.top">
+            <block class="Magento\Cms\Block\Block" name="category.banner" after="top.container">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">category-banner</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="category.list" after="category.banner">
+            <arguments>
+                <argument name="block_id" xsi:type="string">category-list</argument>
+            </arguments>
+        </block>
+        </referenceContainer>        
     </body>
 </page>

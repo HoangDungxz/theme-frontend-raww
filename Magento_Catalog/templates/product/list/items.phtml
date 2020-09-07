@@ -7,14 +7,19 @@
 
 use Magento\Catalog\ViewModel\Product\Listing\PreparePostData;
 use Magento\Framework\App\ActionInterface;
+use Magento\Framework\App\Action\Action;
 
 // phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
 // phpcs:disable Generic.WhiteSpace.ScopeIndent.Incorrect
 
 /* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+
 ?>
 
 <?php
+$postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+$jsonHelper = $this->helper('Magento\Framework\Json\Helper\Data');
+
 switch ($type = $block->getType()) {
 
     case 'related-rule':
@@ -23,14 +28,14 @@ switch ($type = $block->getType()) {
             $class = $type;
 
             $image = 'related_products_list';
-            $title = __('Related Products');
+            $title = __('Goes well with');
             $items = $block->getAllItems();
             $limit = $block->getPositionLimit();
             $shuffle = (int) $block->isShuffled();
             $canItemsAddToCart = $block->canItemsAddToCart();
 
             $showAddTo = true;
-            $showCart = false;
+            $showCart = true;
             $templateType = null;
             $description = false;
         }
@@ -43,14 +48,14 @@ switch ($type = $block->getType()) {
             $class = $type;
 
             $image = 'related_products_list';
-            $title = __('Related Products');
+            $title = __('Goes well with');
             $items = $block->getItems();
             $limit = 0;
             $shuffle = 0;
             $canItemsAddToCart = $block->canItemsAddToCart();
 
             $showAddTo = true;
-            $showCart = false;
+            $showCart = true;
             $templateType = null;
             $description = false;
         }
@@ -179,7 +184,7 @@ $_item = null;
                         </div>
                     <?php endif; ?>
                     <div class="products wrapper grid products-grid products-<?= $block->escapeHtmlAttr($type) ?>">
-                        <ol class="products list items product-items" id="<?php echo $type; ?>">>
+                        <ol class="products list items product-items owl-carousel owl-theme" id="<?php echo $type; ?>">>
                             <?php foreach ($items as $_item) : ?>
                                 <?php $available = ''; ?>
                                 <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related') : ?>
@@ -192,17 +197,28 @@ $_item = null;
                                     <?php else : ?>
                                     <li class="item product product-item">
                                     <?php endif; ?>
+
                                     <div class="product-item-info <?= /* @noEscape */ $available ?>">
                                         <?= /* @noEscape */ '<!-- ' . $image . '-->' ?>
                                         <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product photo product-item-photo">
                                             <?= $block->getImage($_item, $image)->toHtml() ?>
                                         </a>
                                         <div class="product details product-item-details">
+
                                             <strong class="product name product-item-name"><a class="product-item-link" title="<?= $block->escapeHtmlAttr($_item->getName()) ?>" href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>">
                                                     <?= $block->escapeHtml($_item->getName()) ?></a>
                                             </strong>
 
                                             <?= /* @noEscape */ $block->getProductPrice($_item) ?>
+
+
+                                            <div class="field qty">
+                                                <div class="control">
+                                                    <span class="minus-btn qty-btn" onclick="this.nextElementSibling.value --"></span>
+                                                    <input type="number" name="qty" maxlength="12" minlength="1" value="1" title="Qty" class="input-text qty" data-validate="null">
+                                                    <span class="plus-btn qty-btn" onclick="this.previousElementSibling.value ++"></span>
+                                                </div>
+                                            </div>
 
                                             <?php if ($templateType) : ?>
                                                 <?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
@@ -226,9 +242,26 @@ $_item = null;
                                                 <?php // phpcs:disable 
                                                 ?>
                                                 <div class="product actions product-item-actions">
-                                            
+
                                                     <?php if ($showCart) : ?>
                                                         <?php if ($_item->isSaleable()) : ?>
+                                                            <?php
+                                                            $postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()]);
+                                                            $postParams = $jsonHelper->jsonDecode($postData);
+                                                            ?>
+
+                                                            <?php if (!$block->isRedirectToCartEnabled()) : ?>
+                                                                <script type="text/x-magento-init">
+                                                                    {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {
+                    "product_sku": "<?= /* @NoEscape */ $_item->getSku() ?>"
+                }
+            }
+        }
+        </script>
+                                                            <?php endif; ?>
+
                                                             <div class="actions-primary">
                                                                 <?php if (!$_item->getTypeInstance()->isPossibleBuyFromList($_item)) : ?>
                                                                     <button class="action tocart primary" data-mage-init='{"redirectUrl": {"url": "<?= $block->escapeUrl($block->getAddToCartUrl($_item)) ?>"}}' type="button" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>">
@@ -301,19 +334,23 @@ $_item = null;
             <script>
                 require([
                     'jquery',
-                    'slick'
+                    'owlcarousel'
                 ], function($) {
-                    jQuery(document).ready(function() {
-                        jQuery("#related").not('.slick-initialized').slick({
-                            slide: 'li',
-                            dots: false,
-                            autoplay: true,
-                            infinite: true,
-                            speed: 300,
-                            autoplaySpeed: 3500,
-                            slidesToShow: 3,
-                            slidesToScroll: 1
-                        });
-                    });
+                    $('#related').owlCarousel({
+                        loop: true,
+                        margin: 10,
+                        nav: true,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            650: {
+                                items: 2
+                            },
+                            1000: {
+                                items: 3
+                            }
+                        }
+                    })
                 });
             </script>

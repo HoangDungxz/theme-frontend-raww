@@ -1,293 +1,324 @@
 & when (@media-common =true) {
-  body.catalog-product-view .page-wrapper .page-main {
-    max-width: 100%;
-    padding: 0;
+    body.catalog-product-view .page-wrapper .page-main {
+        max-width: 100%;
+        padding: 0;
 
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-    }
-  }
-
-  .breadcrumbs {
-    strong {
-      color: #999;
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
     }
 
-    a:visited {
-      color: #8b7f70;
-      font-size: 13px;
+    .breadcrumbs {
+        strong {
+            color: #999;
+        }
+
+        a:visited {
+            color: #8b7f70;
+            font-size: 13px;
+        }
+
+        .item:not(:last-child):after {
+            content: "/";
+            font-size: 17px;
+            margin-left: 4px;
+            margin-top: -3px;
+            margin-right: 5px;
+            color: #d3d3d3;
+        }
     }
 
-    .item:not(:last-child):after {
-      content: "/";
-      font-size: 17px;
-      margin-left: 4px;
-      margin-top: -3px;
-      margin-right: 5px;
-      color: #d3d3d3;
-    }
-  }
+    .catalog-product-view .container {
+        .product-info-main {
+            text-align: center;
+            // width: 40%;
 
-  .catalog-product-view .container {
+            .page-title {
+                font-family: @font-family-name__base;
+                color: #30241a;
+                margin-top: 20px;
+            }
+
+            .status-product {
+                background-color: @button-primary__background;
+                color: @button-primary__color;
+                font-size: 12px;
+                font-family: @font-family__Avenir-Black;
+                padding: 8px 10px;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                display: inline-block;
+            }
+        }
+    }
+
+    .fotorama {
+        margin-bottom: 40px;
+        height: 600px;
+    }
+
+    .fotorama__arr,
+    .fotorama__thumb__arr {
+        &:hover {
+            background: none !important;
+        }
+
+        background: none !important;
+    }
+
+    .page-product-configurable .product.media .fotorama__nav.fotorama__nav--thumbs .fotorama__thumb-border,
+    .catalog-product-view .product.media .fotorama__nav.fotorama__nav--thumbs .fotorama__thumb-border {
+        border: 1px solid #eee;
+        background: transparent;
+    }
+
     .product-info-main {
-      text-align: center;
-      // width: 40%;
-
-      .page-title {
-        font-family: @font-family-name__base;
-        color: #30241a;
-        margin-top: 20px;
-      }
-
-      .status-product {
-        background-color: @button-primary__background;
-        color: @button-primary__color;
-        font-size: 12px;
-        font-family: @font-family__Avenir-Black;
-        padding: 8px 10px;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        display: inline-block;
-      }
-    }
-  }
-
-  .fotorama {
-    margin-bottom: 40px;
-    height: 600px;
-  }
-
-  .fotorama__arr,
-  .fotorama__thumb__arr {
-    &:hover {
-      background: none !important;
+        .product-info-price {
+            width: 65%;
+            margin: 0 auto;
+        }
     }
 
-    background: none !important;
-  }
-
-  .page-product-configurable
-    .product.media
-    .fotorama__nav.fotorama__nav--thumbs
-    .fotorama__thumb-border,
-  .catalog-product-view
-    .product.media
-    .fotorama__nav.fotorama__nav--thumbs
-    .fotorama__thumb-border {
-    border: 1px solid #eee;
-    background: transparent;
-  }
-
-  .product-info-main {
+    .product-options-bottom,
     .product-info-price {
-      width: 65%;
-      margin: 0 auto;
-    }
-  }
-
-  .product-options-bottom,
-  .product-info-price {
-    .price-box {
-      .price-container {
-        .price {
-          color: @color-black;
+        .price-box {
+            .price-container {
+                .price {
+                    color: @color-black;
+                }
+            }
         }
-      }
-    }
 
-    .actions {
-      grid-column-start: 2;
-      grid-column-end: 6;
-    }
-
-    .box-tocart {
-      .action.tocart {
-        &:not(:last-child) {
-          width: 90%;
-          margin: 0px;
-          float: right;
+        .actions {
+            grid-column-start: 2;
+            grid-column-end: 6;
         }
-      }
-      .fieldset {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        > .field {
-          grid-row: 1 / span 3;
-          > .label {
-            display: none;
-          }
+
+        .box-tocart {
+            .action.tocart {
+                &:not(:last-child) {
+                    width: 90%;
+                    margin: 0px;
+                    float: right;
+                }
+            }
+
+            .fieldset {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+                >.field {
+                    width: 100px;
+                    grid-row: 1 / span 3;
+
+                    >.label {
+                        display: none;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  .superfood-home.basic-fragrant {
-    border: 1px solid #dfdfdf;
-    padding: 10px 55px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-family: @font-family__Avenir-Black;
-    .contain-misc {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 20px;
+    .superfood-home.basic-fragrant {
+        border: 1px solid #dfdfdf;
+        padding: 10px 55px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-family: @font-family__Avenir-Black;
+
+        .contain-misc {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 20px;
+        }
     }
-  }
 
-  .superfood-contain {
-    background: url("@{baseDir}images/background-home-promition.png");
-  }
+    .superfood-contain {
+        background: url("@{baseDir}images/background-home-promition.png");
+    }
 
-  .superfood-home.superfood-product {
-    font-size: 0;
+    .superfood-home.superfood-product {
+        font-size: 0;
 
-    .title {
-      h2,
-      h3 {
-        font-family: @font-family__Markerfield-W00-Regular;
-        font-size: 84px;
+        .title {
+
+            h2,
+            h3 {
+                font-family: @font-family__Markerfield-W00-Regular;
+                font-size: 84px;
+                color: white;
+            }
+
+            p {
+                color: white;
+            }
+        }
+
+        .content {
+            .items {
+                .item {
+                    p {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .shop-by {
+            opacity: 0;
+        }
+    }
+
+    .category-banner {
+        background-color: grey;
         color: white;
-      }
-      p {
-        color: white;
-      }
-    }
 
-    .content {
-      .items {
-        .item {
-          p {
-            color: white;
-          }
+        &-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 200px 0 30px 0;
+
+            h1 {
+                font-family: @font-family__Markerfield-W00-Regular ;
+                font-size: 80px;
+                margin-bottom: 20px;
+            }
+
+            p {
+                color: white;
+                width: 40%;
+            }
         }
-      }
     }
 
-    .shop-by {
-      opacity: 0;
+    .category-list {
+        border-bottom: 1px solid #eee;
+        ul {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0;
+            li {
+                list-style: none;
+                justify-items: flex-start;
+                width: 100px;
+                padding: 40px;
+                text-align: center;
+                font-family: @font-family__Avenir-Black;
+                img {
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
     }
-  }
 
-  // .product.info.detailed {
-  //   width: 60%;
-  // }
+    .page-title-wrapper {
+        display: none;
+    }
+
 }
 
 .fotorama__stage__frame .fotorama__img,
 .fotorama__nav-wrap .fotorama_vertical_ratio .fotorama__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 //
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break)
-  when
-  (@extremum = "max")
-  and
-  (@break = @screen__xxs) {
-  .superfood-home.basic-fragrant {
-    padding: 10px 20px !important;
-    .contain-misc {
-      grid-gap: 25px !important;
+.media-width(@extremum, @break) when (@extremum ="max") and (@break =@screen__xxs) {
+    .superfood-home.basic-fragrant {
+        padding: 10px 20px !important;
+
+        .contain-misc {
+            grid-gap: 25px !important;
+        }
     }
-  }
 }
 
-.media-width(@extremum, @break)
-  when
-  (@extremum = "max")
-  and
-  (@break = @screen__s) {
-  .superfood-home.basic-fragrant {
-    padding: 10px 30px !important;
-    .contain-misc {
-      grid-gap: 35px !important;
+.media-width(@extremum, @break) when (@extremum ="max") and (@break =@screen__s) {
+    .superfood-home.basic-fragrant {
+        padding: 10px 30px !important;
+
+        .contain-misc {
+            grid-gap: 35px !important;
+        }
     }
-  }
 }
 
-.media-width(@extremum, @break)
-  when
-  (@extremum = "max")
-  and
-  (@break = @screen__m) {
-  .page-layout-1column {
-    .product-info-main {
-      width: 90%;
-      margin: 0 auto;
+.media-width(@extremum, @break) when (@extremum ="max") and (@break =@screen__m) {
+    .page-layout-1column {
+        .product-info-main {
+            width: 90%;
+            margin: 0 auto;
+        }
     }
-  }
 
-  .product.info.detailed {
-    width: 90% !important;
-    margin: 0 auto;
-  }
-
-  .superfood-home.basic-fragrant {
-    padding: 10px 80px !important;
-    .contain-misc {
-      grid-gap: 35px !important;
+    .product.info.detailed {
+        width: 90% !important;
+        margin: 0 auto;
     }
-  }
 
-  .fotorama {
-    height: auto !important;
-  }
+    .superfood-home.basic-fragrant {
+        padding: 10px 80px !important;
+
+        .contain-misc {
+            grid-gap: 35px !important;
+        }
+    }
+
+    .fotorama {
+        height: auto !important;
+    }
 }
 
 @media only screen and (max-width: 479px) {
-  .minicart-wrapper .block-minicart {
-    width: 350px;
-  }
+    .minicart-wrapper .block-minicart {
+        width: 350px;
+    }
 }
 
 //
 //  Tablet
 //  _____________________________________________
 @media only screen and (max-width: 1023px) {
-  .superfood-home.basic-fragrant {
-    padding: 10px 18px;
-    .contain-misc {
-      grid-gap: 20px;
+    .superfood-home.basic-fragrant {
+        padding: 10px 18px;
+
+        .contain-misc {
+            grid-gap: 20px;
+        }
     }
-  }
 }
 
 //
 //  Desktop
 //  _____________________________________________
 
-.media-width(@extremum, @break)
-  when
-  (@extremum = "min")
-  and
-  (@break = @screen__m) {
-  .page-layout-1column {
-    .product-info-main {
-      width: 33%;
+.media-width(@extremum, @break) when (@extremum ="min") and (@break =@screen__m) {
+    .page-layout-1column {
+        .product-info-main {
+            width: 33%;
+        }
     }
-  }
 
-  .minicart-wrapper {
-    .block-minicart {
-      width: 450px;
+    .minicart-wrapper {
+        .block-minicart {
+            width: 450px;
+        }
     }
-  }
 }
 
 @media screen and (max-width: 1023px) and (min-width: 767px) {
-  .superfood-home.superfood-product {
-    .content {
-      .items {
-        width: calc(100% / 4) !important;
-      }
+    .superfood-home.superfood-product {
+        .content {
+            .items {
+                width: calc(100% / 4) !important;
+            }
+        }
     }
-  }
 }
-
-

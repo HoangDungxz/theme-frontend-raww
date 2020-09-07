@@ -12,24 +12,31 @@
 <?php if ($_product->isSaleable()) : ?>
     <div class="box-tocart">
         <div class="fieldset">
+            <!-- <div class="field qty">
+                <div class="control">
+                    <span class="minus-btn qty-btn" onclick="this.nextElementSibling.value --"></span>
+                    <input type="number" name="qty" maxlength="12" minlength="1" value="1" title="Qty" class="input-text qty" data-validate="null">
+                    <span class="plus-btn qty-btn" onclick="this.previousElementSibling.value ++"></span>
+                </div>
+            </div> -->
             <?php if ($block->shouldRenderQuantity()) : ?>
                 <!-- this is the code will override -->
                 <div class="field qty">
                     <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
                     <div class="control">
-                        <span class="minus"><button type="button" title="<?= __('Reduce the quantity'); ?>">-</button></span>
-                        <input type="number" name="qty" id="qty" maxlength="12" value="<?= $block->getProductDefaultQty() * 1 ?>" title="<?= $block->escapeHtmlAttr(__('Qty')) ?>" class="input-text qty" data-validate="<?= $block->escapeHtmlAttr(json_encode($block->getQuantityValidators())) ?>" />
-                        <span class="plus"><button type="button" title="<?= __('Increase the quantity'); ?>">+</button></span>
+                        <span class="minus-btn qty-btn"></span>
+                        <input type="number" name="qty" id="qty" class="input-text qty" maxlength="12" value="<?= $block->getProductDefaultQty() * 1 ?>" title="<?= $block->escapeHtmlAttr(__('Qty')) ?>" class="input-text qty" data-validate="<?= $block->escapeHtmlAttr(json_encode($block->getQuantityValidators())) ?>" />
+                        <span class="plus-btn qty-btn"></span>
 
                         <script type="text/javascript">
                             // this is the javascript code quantity
                             require(['jquery'], function($) {
-                                $('.box-tocart .minus').on('click', function() {
+                                $('.box-tocart .minus-btn').on('click', function() {
                                     var qty = parseInt($('#qty').val());
                                     qty = qty - 1;
                                     $('#qty').val(qty).trigger('change');
                                 });
-                                $('.box-tocart .plus').on('click', function() {
+                                $('.box-tocart .plus-btn').on('click', function() {
                                     var qty = parseInt($('#qty').val());
                                     qty = qty + 1;
                                     $('#qty').val(qty).trigger('change');
@@ -65,3 +72,4 @@
     }
 }
 </script>
+
